@@ -1,0 +1,23 @@
+{
+      "projectName":	"Ext JS 4 Calendar Panel"
+    , "licenseText":	"Copyright(c) 2011 NRT Engineer.\nlicensing@nrt-engineer.biz"
+    , "builds":			[
+		  {
+              "name":			"All Classes Needed"
+            , "target":			"classes.js"
+            , "compress":		true
+            , "files":			[
+				  {
+					  "path":	"js/ux/calendar/"
+					, "name":	"AbstractPanel.js"
+				}
+				, {
+					  "path":	"js/ux/calendar/"
+					, "name":	"Panel.js"
+				}
+			]
+		}
+	]
+    , "resources": []
+}
+

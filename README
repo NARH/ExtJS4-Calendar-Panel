@@ -5,3 +5,18 @@ ExtJS4 ( http://www.sencha.com/products/extjs/ ) が出たので、Calendar Comp
 ExtJS4 本体は含んでいませんので、本家よりダウンロードして使います。
 
 まだ、開発を始めたばかりなので Hello World 状態です
+
+JSBuilder3 での build 方法 ( MacOS X 10.6.7 )
+
+% sencha build -p app.jsb3 -d .
+
+Loading the Ext JS 4 Calendar Panel Project
+Loaded 0 Packages
+Loaded 1 Builds
+  * Parse classes.js with options:
+    - debug: false
+    - debugLevel: 1
+  * Compress and obfuscate classes.js...
+Copy resources...
+Done building!
+
