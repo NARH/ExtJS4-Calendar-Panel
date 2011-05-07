@@ -2,4 +2,6 @@
 2011.05.08
 
 ExtJS4 ( http://www.sencha.com/products/extjs/ ) が出たので、Calendar Component を作ってみようと思います。
-ExtJS4 本体は含んでいませんので、本家よりダウンロードして使います
+ExtJS4 本体は含んでいませんので、本家よりダウンロードして使います。
+
+まだ、開発を始めたばかりなので Hello World 状態です
