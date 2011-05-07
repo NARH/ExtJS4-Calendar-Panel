@@ -4,15 +4,19 @@
     , "builds":			[
 		  {
               "name":			"All Classes Needed"
-            , "target":			"classes.js"
+            , "target":			"calendar.js"
             , "compress":		true
             , "files":			[
 				  {
-					  "path":	"js/ux/calendar/"
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"Controllbar.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"AbstractPanel.js"
 				}
 				, {
-					  "path":	"js/ux/calendar/"
+					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"Panel.js"
 				}
 			]

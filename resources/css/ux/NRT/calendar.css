@@ -1,0 +1,48 @@
+.x-tbar-calendar-today{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/date.png') !important
+}
+.x-item-disabled .x-tbar-calendar-today{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/date.png') !important
+}
+.x-tbar-calendar-prev{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/resultset_previous.png') !important
+}
+.x-item-disabled .x-tbar-calendar-prev{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/resultset_previous.png') !important
+}
+.x-tbar-calendar-next{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/resultset_next.png') !important
+}
+.x-item-disabled .x-tbar-calendar-next{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/resultset_next.png') !important
+}
+.x-tbar-calendar-view-day{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_day.png') !important
+}
+.x-item-disabled .x-tbar-calendar-view-day{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_day.png') !important
+}
+.x-tbar-calendar-view-week{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
+}
+.x-item-disabled .x-tbar-calendar-view-week{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
+}
+.x-tbar-calendar-view-month{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_month.png') !important
+}
+.x-item-disabled .x-tbar-calendar-view-month{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_month.png') !important
+}
+.x-tbar-calendar-view-fourdays{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
+}
+.x-item-disabled .x-tbar-calendar-view-fourdays{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
+}
+.x-tbar-calendar-view-todo{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/text_list_bullets.png') !important
+}
+.x-item-disabled .x-tbar-calendar-view-todo{
+	background-image:url('../../../../resources/themes/images/default/ux/NRT/text_list_bullets.png') !important
+}
