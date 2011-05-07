@@ -13,7 +13,7 @@ Ext.onReady(function() {
 			, dayViewLabel:			'日毎'
 			, weekViewLabel:		'週毎'
 			, monthViewLabel:		'月毎'
-			, fourDaysViewLabel:	'4日毎'
+			, customDaysViewLabel:	'日毎'
 			, todoLabel:			'予定リスト'
 		});
 	}

@@ -13,6 +13,8 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 */
 	, prependButtons:		false
 
+	, activeViewType:		0
+	, customDays:			4
 	, dateFormat:			'm/d/Y'
 	, todayLabel:			'tody'
 	, prevLabel:			'next'
@@ -20,7 +22,7 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	, dayViewLabel:			'day view'
 	, weekViewLabel:		'week view'
 	, monthViewLabel:		'month view'
-	, fourDaysViewLabel:	'4-days view'
+	, customDaysViewLabel:	'-days view'
 	, todoLabel:			'todo list'
 
 	, currentDate:			new Date()
@@ -31,7 +33,8 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 */
 	, getControllItems:		function() {
 		console.log( ' -- method getControllItems calling -- ' );
-		var me	= this;
+		var me	= this
+			, customText	= me.customDays + me.customDaysViewLabel;
 
 		return [
 			  {
@@ -102,13 +105,13 @@ Ext.define( 'NRT.calendar.Controllbar', {
 			}
 			, '-'
 			, {
-				  itemId:			'fourDaysView'
-				, text:				me.fourDaysViewLabel
-				, tooltip:			me.fourDaysViewLabel
-				, overflowText:		me.fourDaysViewLabel
-				, iconCls:			Ext.baseCSSPrefix + 'tbar-calendar-view-fourdays'
+				  itemId:			'customDaysView'
+				, text:				customText
+				, tooltip:			customText
+				, overflowText:		customText
+				, iconCls:			Ext.baseCSSPrefix + 'tbar-calendar-view-customdays'
 				, disabled:			false
-				, handler:			me.moveFourDaysView
+				, handler:			me.movecustomDaysView
 				, scope:			me
 			}
 			, '-'
@@ -181,8 +184,8 @@ Ext.define( 'NRT.calendar.Controllbar', {
 		console.log( ' -- month view pushed -- ' );
 	}
 
-	, moveFourDaysView:		function() {
-		console.log( ' -- four days view pushed -- ' );
+	, movecustomDaysView:		function() {
+		console.log( ' -- custom days view pushed -- ' );
 	}
 
 	, moveTodoView:			function() {

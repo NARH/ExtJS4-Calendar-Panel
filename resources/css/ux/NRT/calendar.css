@@ -34,10 +34,10 @@
 .x-item-disabled .x-tbar-calendar-view-month{
 	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_month.png') !important
 }
-.x-tbar-calendar-view-fourdays{
+.x-tbar-calendar-view-customdays{
 	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
 }
-.x-item-disabled .x-tbar-calendar-view-fourdays{
+.x-item-disabled .x-tbar-calendar-view-customdays{
 	background-image:url('../../../../resources/themes/images/default/ux/NRT/calendar_view_week.png') !important
 }
 .x-tbar-calendar-view-todo{
