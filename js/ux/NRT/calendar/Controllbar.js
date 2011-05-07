@@ -13,14 +13,14 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 */
 	, prependButtons:		false
 
-	, todayLabel:			'本日'
-	, prevLabel:			'前へ'
-	, nextLabel:			'次へ'
-	, dayViewLabel:			'日毎'
-	, weekViewLabel:		'週毎'
-	, monthViewLabel:		'月毎'
-	, fourDaysViewLabel:	'4日毎'
-	, todoLabel:			'予定リスト'
+	, todayLabel:			'tody'
+	, prevLabel:			'next'
+	, nextLabel:			'prev'
+	, dayViewLabel:			'day view'
+	, weekViewLabel:		'week view'
+	, monthViewLabel:		'month view'
+	, fourDaysViewLabel:	'4-days view'
+	, todoLabel:			'todo list'
 
 	, getControllItems:		function() {
 		console.log( ' -- method getControllItems calling -- ' );
