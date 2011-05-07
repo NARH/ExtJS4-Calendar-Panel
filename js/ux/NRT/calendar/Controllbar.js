@@ -13,6 +13,7 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 */
 	, prependButtons:		false
 
+	, dateFormat:			'm/d/Y'
 	, todayLabel:			'tody'
 	, prevLabel:			'next'
 	, nextLabel:			'prev'
@@ -22,6 +23,12 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	, fourDaysViewLabel:	'4-days view'
 	, todoLabel:			'todo list'
 
+	, currentDate:			new Date()
+
+	/**
+	 * {{{ getControllItems method
+	 *
+	 */
 	, getControllItems:		function() {
 		console.log( ' -- method getControllItems calling -- ' );
 		var me	= this;
@@ -55,6 +62,10 @@ Ext.define( 'NRT.calendar.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveNext
 				, scope:			me
+			}
+			, {
+				  itemId:			'currentDate'
+				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
 			}
 			, '->'
 			, {
@@ -113,6 +124,16 @@ Ext.define( 'NRT.calendar.Controllbar', {
 			}
 		]
 	}
+	// }}}
+
+	, updateCurrentDate:	function( date ) {
+		console.log( ' -- method updateCurrentDate calling -- ' );
+		var me	= this;
+		me.currentDate	= date;
+		var newDateStr	= Ext.Date.format( me.currentDate, me.dateFormat );
+		var target = me.getComponent('currentDate').update( newDateStr );
+		console.log( ' -- method updateCurrentDate done -- ' );
+	}
 
 	, initComponent:		function() {
 		console.log( ' -- component initilizing start -- ' );
@@ -135,14 +156,17 @@ Ext.define( 'NRT.calendar.Controllbar', {
 
 	, moveToday:			function() {
 		console.log( ' -- today pushed -- ' );
+		this.updateCurrentDate( new Date() );
 	}
 
 	, movePrev:				function() {
 		console.log( ' -- prev pushed -- ' );
+		this.updateCurrentDate( Ext.Date.add( this.currentDate, Ext.Date.DAY, -1 ) );
 	}
 
 	, moveNext:				function() {
 		console.log( ' -- next pushed -- ' );
+		this.updateCurrentDate( Ext.Date.add( this.currentDate, Ext.Date.DAY, 1 ) );
 	}
 
 	, moveDayView:			function() {

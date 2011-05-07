@@ -6,7 +6,8 @@ Ext.onReady(function() {
 	
 	if( NRT.calendar.Controllbar ) {
 		Ext.apply( NRT.calendar.Controllbar.prototype, {
-			  todayLabel:			'本日'
+			  dateFormat:			'Y年m月d日(l)'
+			, todayLabel:			'本日'
 			, prevLabel:			'前へ'
 			, nextLabel:			'次へ'
 			, dayViewLabel:			'日毎'
