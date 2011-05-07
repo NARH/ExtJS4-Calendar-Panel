@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title id="page-title">Application Console</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/ext-all.css">
+	<script type="text/javascript" src="js/ext-all.js"></script>
+	<script type="text/javascript" src="js/ux/calendar/AbstractPanel.js"></script>
+	<script type="text/javascript" src="js/ux/calendar/Panel.js"></script>
+	<script>
+		Ext.onReady( function() {
+			 Ext.QuickTips.init();
+			 //var dt		= Ext.Date.add( new Date('10/29/2006'), Ext.Date.DAY, 5 );
+			 var dt		= new Date( Ext.Date.now() );
+			 var el		= Ext.get('console');
+			// el.update( dt );
+			 
+			 console.log( '-- start! --' );
+
+			 Ext.create('Ext.container.Viewport', {
+				  layout:			'fit'
+				, renderTo:			Ext.getBody()
+				, items:			[
+					  { xtype:	'calendar',	title:	'hello',	html:	'HelloWorld' }
+				]
+			 });
+			 
+			 console.log( '-- done! --' );
+		});
+	</script>
+</head>
+<body>
+	<div id="console"></div>
+</body>
+</html>
+
+
