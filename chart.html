@@ -1,0 +1,154 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title id="page-title">ExtJS 4 Calendar Panel Sample</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/ux/NRT/calendar.css">
+	<style type="text/css">
+	#footer {
+		clear: both;
+		border-top: 1px
+		solid #bbb;
+		font-size: 0.9em;
+		color: #aaa;
+		padding: 5px;
+		text-align:center;
+		background:#fff;
+	}
+	</style>
+
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="locale/ext-lang-ja.js"></script>
+	<script>
+		Ext.onReady( function() {
+			 Ext.QuickTips.init();
+			 
+			 console.log( '-- initializing start! --' );
+			
+			 window.generateData		= function(n, floor) {
+				 var data = []
+				 , p = (Math.random() *  11) + 1
+				 , i;
+				 
+				 floor = (!floor && floor !== 0)? 20 : floor; 
+				 
+				 for ( i = 0; i < (n || 12); i++ ) {
+					 data.push({
+						   name: Ext.Date.monthNames[i % 12]
+						 , data1: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data2: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data3: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data4: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data5: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data6: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data7: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data8: Math.floor(Math.max((Math.random() * 100), floor))
+						 , data9: Math.floor(Math.max((Math.random() * 100), floor))
+					});
+				}
+				
+				return data;
+			};
+
+			var data		= [
+				  { name:		new Date('1/2/2011 03:00:00') }
+				, { name:		new Date('1/2/2011 02:30:00') }
+				, { name:		new Date('1/2/2011 02:00:00') }
+				, { name:		new Date('1/2/2011 01:30:00') }
+				, { name:		new Date('1/2/2011 01:00:00') }
+				, { name:		new Date('1/2/2011 00:30:00') }
+				, { name:		new Date('1/2/2011 00:00:00') }
+				, { name:		new Date('1/1/2011 23:30:00') }
+				, { name:		new Date('1/1/2011 23:00:00') }
+				, { name:		new Date('1/1/2011 22:30:00') }
+				, { name:		new Date('1/1/2011 22:00:00') }
+				, { name:		new Date('1/1/2011 21:30:00') }
+				, { name:		new Date('1/1/2011 21:00:00') }
+				, { name:		new Date('1/1/2011 20:30:00') }
+				, { name:		new Date('1/1/2011 20:00:00') }
+				, { name:		new Date('1/1/2011 19:30:00') }
+				, { name:		new Date('1/1/2011 19:00:00') }
+				, { name:		new Date('1/1/2011 18:30:00') }
+				, { name:		new Date('1/1/2011 18:00:00') }
+				, { name:		new Date('1/1/2011 17:30:00') }
+				, { name:		new Date('1/1/2011 17:00:00') }
+				, { name:		new Date('1/1/2011 16:30:00') }
+				, { name:		new Date('1/1/2011 16:00:00') }
+				, { name:		new Date('1/1/2011 15:30:00') }
+				, { name:		new Date('1/1/2011 15:00:00') }
+				, { name:		new Date('1/1/2011 14:30:00') }
+				, { name:		new Date('1/1/2011 14:00:00') }
+				, { name:		new Date('1/1/2011 13:30:00') }
+				, { name:		new Date('1/1/2011 13:00:00') }
+				, { name:		new Date('1/1/2011 12:30:00') }
+				, { name:		new Date('1/1/2011 12:00:00') }
+				, { name:		new Date('1/1/2011 11:30:00') }
+				, { name:		new Date('1/1/2011 11:00:00') }
+				, { name:		new Date('1/1/2011 10:30:00') }
+				, { name:		new Date('1/1/2011 10:00:00') }
+				, { name:		new Date('1/1/2011 09:30:00') }
+				, { name:		new Date('1/1/2011 09:00:00') }
+				, { name:		new Date('1/1/2011 08:30:00') }
+				, { name:		new Date('1/1/2011 08:00:00') }
+				, { name:		new Date('1/1/2011 07:30:00') }
+				, { name:		new Date('1/1/2011 07:00:00') }
+				, { name:		new Date('1/1/2011 06:30:00') }
+				, { name:		new Date('1/1/2011 06:00:00') }
+				, { name:		new Date('1/1/2011 05:30:00') }
+				, { name:		new Date('1/1/2011 05:00:00') }
+				, { name:		new Date('1/1/2011 04:30:00') }
+				, { name:		new Date('1/1/2011 04:00:00') }
+				, { name:		new Date('1/1/2011 03:30:00') }
+				, { name:		new Date('1/1/2011 03:00:00') }
+				, { name:		new Date('1/1/2011 02:30:00') }
+				, { name:		new Date('1/1/2011 02:00:00') }
+				, { name:		new Date('1/1/2011 01:30:00') }
+				, { name:		new Date('1/1/2011 01:00:00') }
+				, { name:		new Date('1/1/2011 00:30:00') }
+				, { name:		new Date('1/1/2011 00:00:00') }
+			];
+			console.log(data);
+			var store		= Ext.create( 'Ext.data.JsonStore', {
+				   fields:	['name', 'data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7', 'data9', 'data9']
+				 , data:	data
+			});
+
+			Ext.create('Ext.container.Viewport', {
+				  layout:			'border'
+				, renderTo:			Ext.getBody()
+				, items:			[
+					  {
+						  xtype:		'chart'
+						, store:		store
+						, region:		'center'
+						, axes:			[
+							  {
+								  type:			'Time'
+							 	, position:		'left'
+								, fields:		['name']
+								, grid:			true
+								, dateFormat:	'H:i'
+								, groupBy:		'year,month,day,hour,minute'
+							}
+						]
+					}
+					, {
+						  xtype:		'panel'
+						, contentEl:	'footer'
+						, region:		'south'
+					}
+				]
+			 });
+			 
+			 console.log( '-- initializing done! --' );
+		});
+	</script>
+</head>
+<body>
+	<div id="console"></div>
+	<div id="footer">&copy; NRT Engineer</div>
+</body>
+</html>
+
+
