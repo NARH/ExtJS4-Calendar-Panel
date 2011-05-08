@@ -14,7 +14,7 @@ Ext.onReady(function() {
 			, weekViewLabel:		'週毎'
 			, monthViewLabel:		'月毎'
 			, customDaysViewLabel:	'日毎'
-			, todoLabel:			'予定リスト'
+			, todoLabel:			'予定一覧'
 		});
 	}
 });

@@ -5,6 +5,19 @@
 
     <link rel="stylesheet" type="text/css" href="resources/css/ext-all.css">
     <link rel="stylesheet" type="text/css" href="resources/css/ux/NRT/calendar.css">
+	<style type="text/css">
+	#footer {
+		clear: both;
+		border-top: 1px
+		solid #bbb;
+		font-size: 0.9em;
+		color: #aaa;
+		padding: 5px;
+		text-align:center;
+		background:#fff;
+	}
+	</style>
+
     <script type="text/javascript" src="bootstrap.js"></script>
     <script type="text/javascript" src="locale/ext-lang-ja.js"></script>
     <script type="text/javascript" src="locale/nrt-lang-ja.js"></script>
@@ -16,27 +29,35 @@
 	<script>
 		Ext.onReady( function() {
 			 Ext.QuickTips.init();
-			 //var dt		= Ext.Date.add( new Date('10/29/2006'), Ext.Date.DAY, 5 );
-			 var dt		= new Date( Ext.Date.now() );
-			 var el		= Ext.get('console');
-			// el.update( dt );
 			 
-			 console.log( '-- start! --' );
+			 var dt		= new Date( Ext.Date.now() );
+			 var el		= Ext.get('console')
+			 	, footer	= Ext.get('footer');
+			 
+			 console.log( '-- initializing start! --' );
 
 			 Ext.create('Ext.container.Viewport', {
 				  layout:			'fit'
 				, renderTo:			Ext.getBody()
 				, items:			[
-					  { xtype:	'nrt.calendar',	title:	'カレンダー',	html:	'HelloWorld' }
+					{
+						  xtype:		'nrt.calendar'
+						, title:		'カレンダー'
+						, dockedItems:		[
+						 	  { contentEl:	'footer', dock: 'bottom' }
+				  			, { xtype:	'nrt.calendar.controll', dock:	'top' }
+						]
+					}
 				]
 			 });
 			 
-			 console.log( '-- done! --' );
+			 console.log( '-- initializing done! --' );
 		});
 	</script>
 </head>
 <body>
 	<div id="console"></div>
+	<div id="footer">&copy; NRT Engineer</div>
 </body>
 </html>
 

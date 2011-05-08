@@ -23,6 +23,9 @@ Ext.define( 'NRT.calendar.Panel', {
 		console.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
+		Ext.apply( 'NRT.calendar.Panel', {
+		});
+
 		me.callParent();
 		console.log( ' -- component initilizing done -- ' + this.alias );
 	}
