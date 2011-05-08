@@ -4,7 +4,7 @@
  */
 Ext.define( 'NRT.calendar.Controllbar', {
 	  extend:				'Ext.toolbar.Toolbar'
-	, alias:				'widget.calendar.controll'
+	, alias:				'widget.nrt.calendar.controll'
 
 	/**
 	 * @cfg {Boolean} prependButtons
@@ -111,7 +111,7 @@ Ext.define( 'NRT.calendar.Controllbar', {
 				, overflowText:		customText
 				, iconCls:			Ext.baseCSSPrefix + 'tbar-calendar-view-customdays'
 				, disabled:			false
-				, handler:			me.movecustomDaysView
+				, handler:			me.moveCustomDaysView
 				, scope:			me
 			}
 			, '-'
@@ -129,6 +129,10 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	}
 	// }}}
 
+	/**
+	 * {{{ updateCurrentDate method
+	 *
+	 */
 	, updateCurrentDate:	function( date ) {
 		console.log( ' -- method updateCurrentDate calling -- ' );
 		var me	= this;
@@ -137,9 +141,14 @@ Ext.define( 'NRT.calendar.Controllbar', {
 		var target = me.getComponent('currentDate').update( newDateStr );
 		console.log( ' -- method updateCurrentDate done -- ' );
 	}
+	// }}}
 
+	/**
+	 * {{{ initComponent method
+	 *
+	 */
 	, initComponent:		function() {
-		console.log( ' -- component initilizing start -- ' );
+		console.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this
 			, controllItems	= me.getControllItems()
 			, userItems = me.items || me.buttons || [];
@@ -154,8 +163,9 @@ Ext.define( 'NRT.calendar.Controllbar', {
 
 		me.callParent();
 
-		console.log( ' -- component initilizing done -- ' );
+		console.log( ' -- component initilizing done -- ' + this.alias );
 	}
+	// }}}
 
 	, moveToday:			function() {
 		console.log( ' -- today pushed -- ' );
@@ -174,22 +184,28 @@ Ext.define( 'NRT.calendar.Controllbar', {
 
 	, moveDayView:			function() {
 		console.log( ' -- day view pushed -- ' );
+		//this.fireEvent('change', this, 'dayview' );
+		this.getBubbleTarget().switchCard( this, 'dayview' );
 	}
 
 	, moveWeekView:			function() {
 		console.log( ' -- week view pushed -- ' );
+		this.getBubbleTarget().switchCard( this, 'weekview' );
 	}
 
 	, moveMonthView:		function() {
 		console.log( ' -- month view pushed -- ' );
+		this.getBubbleTarget().switchCard( this, 'monthview' );
 	}
 
-	, movecustomDaysView:		function() {
+	, moveCustomDaysView:		function() {
 		console.log( ' -- custom days view pushed -- ' );
+		this.getBubbleTarget().switchCard( this, 'customview' );
 	}
 
 	, moveTodoView:			function() {
 		console.log( ' -- todo view pushed -- ' );
+		this.getBubbleTarget().switchCard( this, 'todoview' );
 	}
 });
 // }}}

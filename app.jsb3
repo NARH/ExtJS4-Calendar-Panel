@@ -13,6 +13,30 @@
 				}
 				, {
 					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"AbstractView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"DayView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"WeekView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"MonthView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"CustomView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
+					, "name":	"TodoView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"AbstractPanel.js"
 				}
 				, {
