@@ -12,24 +12,48 @@
 					, "name":	"Controllbar.js"
 				}
 				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"AbstractViewTemplate.js"
+				}
+				, {
 					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"AbstractView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"DayViewTemplate.js"
 				}
 				, {
 					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"DayView.js"
 				}
 				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"WeekViewTemplate.js"
+				}
+				, {
 					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"WeekView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"MonthViewTemplate.js"
 				}
 				, {
 					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"MonthView.js"
 				}
 				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"CustomViewTemplate.js"
+				}
+				, {
 					  "path":	"js/ux/NRT/calendar/"
 					, "name":	"CustomView.js"
+				}
+				, {
+					  "path":	"js/ux/NRT/calendar/templates/"
+					, "name":	"TodoViewTemplate.js"
 				}
 				, {
 					  "path":	"js/ux/NRT/calendar/"
