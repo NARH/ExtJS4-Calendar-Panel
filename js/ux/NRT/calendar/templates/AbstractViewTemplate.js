@@ -24,6 +24,7 @@ Ext.define( 'NRT.calendar.templates.AbstractViewTemplate', {
 			}
 		}
 	}
+
 });
 // }}}
 // vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent

@@ -7,6 +7,8 @@ Ext.define( 'NRT.calendar.Panel', {
 	, alias:				'widget.nrt.calendar'
 
 	, layout:				'card'
+	, autoScroll:			true
+
 	, dockedItems:			[
 		  { xtype:	'nrt.calendar.controll', dock:	'top' }
 	]

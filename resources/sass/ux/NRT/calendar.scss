@@ -1,0 +1,68 @@
+@import			'compass/css3';
+
+/*
+ * parameters
+ */
+$theme:				'default';
+$uxName:			'NRT';
+$resources_url:		'../../../../resources/';
+$images:			$resources_url + 'themes/images/';
+
+/*
+ * Mixin
+ */
+@mixin				buttonIcon( $icon: '' ) {
+	background-image:url( $images + $theme + '/ux/' + $uxName + '/' + $icon ) !important
+}
+
+/*
+ * Toolbar
+ */
+.x-tbar-calendar-today{
+	@include	buttonIcon( 'date.png' );
+}
+.x-item-disabled .x-tbar-calendar-today{
+	@include	buttonIcon( 'date.png' );
+}
+.x-tbar-calendar-prev{
+	@include	buttonIcon( 'resultset_previous.png' );
+}
+.x-item-disabled .x-tbar-calendar-prev{
+	@include	buttonIcon( 'resultset_previous.png' );
+}
+.x-tbar-calendar-next{
+	@include	buttonIcon( 'resultset_next.png' );
+}
+.x-item-disabled .x-tbar-calendar-next{
+	@include	buttonIcon( 'resultset_next.png' );
+}
+.x-tbar-calendar-view-day{
+	@include	buttonIcon( 'calendar_view_day.png' );
+}
+.x-item-disabled .x-tbar-calendar-view-day{
+	@include	buttonIcon( 'calendar_view_day.png' );
+}
+.x-tbar-calendar-view-week{
+	@include	buttonIcon( 'calendar_view_week.png' );
+}
+.x-item-disabled .x-tbar-calendar-view-week{
+	@include	buttonIcon( 'calendar_view_week.png' );
+}
+.x-tbar-calendar-view-month{
+	@include	buttonIcon( 'calendar_view_month.png' );
+}
+.x-item-disabled .x-tbar-calendar-view-month{
+	@include	buttonIcon( 'calendar_view_month.png' );
+}
+.x-tbar-calendar-view-customdays{
+	@include	buttonIcon( 'calendar_view_week.png' );
+}
+.x-item-disabled .x-tbar-calendar-view-customdays{
+	@include	buttonIcon( 'calendar_view_week.png' );
+}
+.x-tbar-calendar-view-todo{
+	@include	buttonIcon( 'text_list_bullets.png' );
+}
+.x-item-disabled .x-tbar-calendar-view-todo{
+	@include	buttonIcon( 'text_list_bullets.png' );
+}

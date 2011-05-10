@@ -20,3 +20,13 @@ Loaded 1 Builds
 Copy resources...
 Done building!
 
+
+2011.05.10
+
+compass setup
+
+sudo gem install compass haml css_parser
+Password:
+
+% cd ExtJS4-Calendar-Panel
+% compass stats resources
