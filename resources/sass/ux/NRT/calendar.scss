@@ -66,3 +66,68 @@ $images:			$resources_url + 'themes/images/';
 .x-item-disabled .x-tbar-calendar-view-todo{
 	@include	buttonIcon( 'text_list_bullets.png' );
 }
+/*
+ * dayview
+ */
+.nrt-cal-bg-tbl{
+    width: 100%;
+    height: 1008px;
+    background-color: #fff;
+    //margin-top: -1px;
+    margin-top: 1px;
+    border-bottom: 1px solid #bcf;
+    border-right: 1px solid #bcf;
+}
+.nrt-cal-gutter{
+    height: 100%;
+    width: 50px;
+}
+.nrt-cal-bg-rows{
+    position: relative;
+    margin-left: 1px;
+    top: 1px;
+}
+.nrt-cal-bg-rows-inner{
+    position: absolute;
+    width: 100%;
+    top: -5; /* row line alignment fix */
+}
+.nrt-cal-bg-row{
+    height: 42px;
+}
+.nrt-cal-bg-row-div{
+    border-bottom: 1px dotted #ddd;
+    border-top: 1px solid #ddd;
+    font-size: 1px;
+    height: 20px;
+    margin-bottom: 20px;
+}
+.ext-row-1{
+    border-top: 0;
+}
+.nrt-cal-day-times{
+    background-color: #f6f9fc;
+    color: #666;
+    padding: 1px 0 0 0;
+    text-align: right;
+    vertical-align: top;
+}
+.nrt-cal-day-time-inner{
+    height: 38px;
+    border-bottom: 1px solid #ddd;
+    padding: 3px 4px 0 0;
+    font-size: 11px;
+}
+.nrt-cal-day-col{
+    border-left: 1px solid #ddd;
+    vertical-align: top
+}
+.nrt-cal-day-col-inner{
+    position: relative;
+    cursor: default;
+}
+.nrt-cal-day-col-gutter{
+    position: relative;
+    margin-right: 15px;
+    height: 1008px;
+}
