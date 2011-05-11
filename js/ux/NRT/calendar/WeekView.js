@@ -1,9 +1,9 @@
 /**
- * {{{ NRT.calendar.WeekView
+ * {{{ Nrt.calendar.WeekView
  *
  */
-Ext.define( 'NRT.calendar.WeekView', {
-	  extend:				'NRT.calendar.AbstractView'
+Ext.define( 'Nrt.calendar.WeekView', {
+	  extend:				'Nrt.calendar.AbstractView'
 	, alias:				'widget.nrt.calendar.weekview'
 
 	/**
@@ -11,12 +11,12 @@ Ext.define( 'NRT.calendar.WeekView', {
 	 *
 	 */
 	, initComponent:		function() {
-		console.log( ' -- component initilizing start -- ' + this.alias );
+		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
 		me.html	= 'ここは WeekView';
 		me.callParent();
-		console.log( ' -- component initilizing done -- ' + this.alias );
+		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
 
@@ -25,15 +25,15 @@ Ext.define( 'NRT.calendar.WeekView', {
 	 *
 	 */
 	, afterRender:			function() {
-		console.log( ' -- component afterRender start -- ' + this.alias );
+		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new NRT.calendar.templates.WeekViewTemplate({
+			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
 				id:			this.id
 			});
 			this.tpl.compile();
 		}
 		this.callParent();
-		console.log( ' -- component afterRender done -- ' + this.alias );
+		Nrt.log( ' -- component afterRender done -- ' + this.alias );
 		this.tpl.overwrite(this.el,{
 			  date:		new Date()
 			, name:		this.alias

@@ -1,8 +1,8 @@
 /**
- * {{{ NRT.calendar.AbstractView
+ * {{{ Nrt.calendar.AbstractView
  *
  */
-Ext.define( 'NRT.calendar.AbstractView', {
+Ext.define( 'Nrt.calendar.AbstractView', {
 	  extend:				'Ext.Component'
 
 	, tpl:					false
@@ -12,20 +12,20 @@ Ext.define( 'NRT.calendar.AbstractView', {
 	 *
 	 */
 	, initComponent:		function() {
-		console.log( ' -- abstract component initilizing start -- ' + this.alias );
+		Ext.log( ' -- abstract component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		NRT.calendar.AbstractView.superclass.initComponent.call( this );
+		Nrt.calendar.AbstractView.superclass.initComponent.call( this );
 		me.addEvents(
 		);
-		console.log( ' -- abstract component initilizing done -- ' + this.alias );
+		Ext.log( ' -- abstract component initilizing done -- ' + this.alias );
 	}
 	// }}}
 
 	, afterRender: function() {
-		console.log( ' -- abstract component afterRender start -- ' + this.alias );
-		NRT.calendar.AbstractView.superclass.afterRender.call( this );
-		console.log( ' -- abstract component afterRender done -- ' + this.alias );
+		Ext.log( ' -- abstract component afterRender start -- ' + this.alias );
+		Nrt.calendar.AbstractView.superclass.afterRender.call( this );
+		Ext.log( ' -- abstract component afterRender done -- ' + this.alias );
 	}
 });
 // }}}

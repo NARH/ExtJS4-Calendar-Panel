@@ -1,9 +1,9 @@
 /**
- * {{{ NRT.calendar.templates.DayViewTemplate
+ * {{{ Nrt.calendar.templates.DayViewTemplate
  *
  */
-Ext.define( 'NRT.calendar.templates.DayViewTemplate', {
-	  extend:				'NRT.calendar.templates.AbstractViewTemplate'
+Ext.define( 'Nrt.calendar.templates.DayViewTemplate', {
+	  extend:				'Nrt.calendar.templates.AbstractViewTemplate'
 
 	, template:				[
 		  '<table class="nrt-cal-bg-tbl" cellspacing="0" cellpadding="0">'

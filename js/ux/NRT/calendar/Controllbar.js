@@ -1,8 +1,8 @@
 /**
- * {{{ NRT.calendar.Controllbar
+ * {{{ Nrt.calendar.Controllbar
  *
  */
-Ext.define( 'NRT.calendar.Controllbar', {
+Ext.define( 'Nrt.calendar.Controllbar', {
 	  extend:				'Ext.toolbar.Toolbar'
 	, alias:				'widget.nrt.calendar.controll'
 
@@ -32,7 +32,7 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 *
 	 */
 	, getControllItems:		function() {
-		console.log( ' -- method getControllItems calling -- ' );
+		Nrt.log( ' -- method getControllItems calling -- ' );
 		var me	= this
 			, customText	= me.customDays + me.customDaysViewLabel;
 
@@ -134,12 +134,12 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 *
 	 */
 	, updateCurrentDate:	function( date ) {
-		console.log( ' -- method updateCurrentDate calling -- ' );
+		Nrt.log( ' -- method updateCurrentDate calling -- ' );
 		var me	= this;
 		me.currentDate	= date;
 		var newDateStr	= Ext.Date.format( me.currentDate, me.dateFormat );
 		var target = me.getComponent('currentDate').update( newDateStr );
-		console.log( ' -- method updateCurrentDate done -- ' );
+		Nrt.log( ' -- method updateCurrentDate done -- ' );
 	}
 	// }}}
 
@@ -148,7 +148,7 @@ Ext.define( 'NRT.calendar.Controllbar', {
 	 *
 	 */
 	, initComponent:		function() {
-		console.log( ' -- component initilizing start -- ' + this.alias );
+		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this
 			, controllItems	= me.getControllItems()
 			, userItems = me.items || me.buttons || [];
@@ -163,48 +163,48 @@ Ext.define( 'NRT.calendar.Controllbar', {
 
 		me.callParent();
 
-		console.log( ' -- component initilizing done -- ' + this.alias );
+		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
 
 	, moveToday:			function() {
-		console.log( ' -- today pushed -- ' );
+		Nrt.log( ' -- today pushed -- ' );
 		this.updateCurrentDate( new Date() );
 	}
 
 	, movePrev:				function() {
-		console.log( ' -- prev pushed -- ' );
+		Nrt.log( ' -- prev pushed -- ' );
 		this.updateCurrentDate( Ext.Date.add( this.currentDate, Ext.Date.DAY, -1 ) );
 	}
 
 	, moveNext:				function() {
-		console.log( ' -- next pushed -- ' );
+		Nrt.log( ' -- next pushed -- ' );
 		this.updateCurrentDate( Ext.Date.add( this.currentDate, Ext.Date.DAY, 1 ) );
 	}
 
 	, moveDayView:			function() {
-		console.log( ' -- day view pushed -- ' );
+		Nrt.log( ' -- day view pushed -- ' );
 		//this.fireEvent('change', this, 'dayview' );
 		this.getBubbleTarget().switchCard( this, 'dayview' );
 	}
 
 	, moveWeekView:			function() {
-		console.log( ' -- week view pushed -- ' );
+		Nrt.log( ' -- week view pushed -- ' );
 		this.getBubbleTarget().switchCard( this, 'weekview' );
 	}
 
 	, moveMonthView:		function() {
-		console.log( ' -- month view pushed -- ' );
+		Nrt.log( ' -- month view pushed -- ' );
 		this.getBubbleTarget().switchCard( this, 'monthview' );
 	}
 
 	, moveCustomDaysView:		function() {
-		console.log( ' -- custom days view pushed -- ' );
+		Nrt.log( ' -- custom days view pushed -- ' );
 		this.getBubbleTarget().switchCard( this, 'customview' );
 	}
 
 	, moveTodoView:			function() {
-		console.log( ' -- todo view pushed -- ' );
+		Nrt.log( ' -- todo view pushed -- ' );
 		this.getBubbleTarget().switchCard( this, 'todoview' );
 	}
 });

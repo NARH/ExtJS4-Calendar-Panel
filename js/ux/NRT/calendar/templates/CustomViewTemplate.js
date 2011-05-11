@@ -1,9 +1,9 @@
 /**
- * {{{ NRT.calendar.templates.CustomViewTemplate
+ * {{{ Nrt.calendar.templates.CustomViewTemplate
  *
  */
-Ext.define( 'NRT.calendar.templates.CustomViewTemplate', {
-	  extend:				'NRT.calendar.templates.AbstractViewTemplate'
+Ext.define( 'Nrt.calendar.templates.CustomViewTemplate', {
+	  extend:				'Nrt.calendar.templates.AbstractViewTemplate'
 
 	, template:				[
 		  '<div>'

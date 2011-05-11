@@ -8,63 +8,67 @@
             , "compress":		true
             , "files":			[
 				  {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/"
+					, "name":	"Nrt.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"Controllbar.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"AbstractViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"AbstractView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"DayViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"DayView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"WeekViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"WeekView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"MonthViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"MonthView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"CustomViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"CustomView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/templates/"
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"TodoViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"TodoView.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"AbstractPanel.js"
 				}
 				, {
-					  "path":	"js/ux/NRT/calendar/"
+					  "path":	"js/ux/Nrt/calendar/"
 					, "name":	"Panel.js"
 				}
 			]

@@ -1,9 +1,9 @@
 /**
- * {{{ NRT.calendar.Panel
+ * {{{ Nrt.calendar.Panel
  *
  */
-Ext.define( 'NRT.calendar.Panel', {
-	  extend:				'NRT.calendar.AbstractPanel'
+Ext.define( 'Nrt.calendar.Panel', {
+	  extend:				'Nrt.calendar.AbstractPanel'
 	, alias:				'widget.nrt.calendar'
 
 	, layout:				'card'
@@ -22,21 +22,21 @@ Ext.define( 'NRT.calendar.Panel', {
 	]
 
 	, initComponent:		function() {
-		console.log( ' -- component initilizing start -- ' + this.alias );
+		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		Ext.apply( 'NRT.calendar.Panel', {
+		Ext.apply( 'Nrt.calendar.Panel', {
 		});
 
 		me.callParent();
-		console.log( ' -- component initilizing done -- ' + this.alias );
+		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 
 	, listeners:			{
 	}
 
 	, switchCard:			function( obj, itemId ) {
-		console.log( ' -- day view bubble -- '  + itemId );
+		Nrt.log( ' -- day view bubble -- '  + itemId );
 		var activeItem	= this.getLayout().setActiveItem( itemId );
 	}
 

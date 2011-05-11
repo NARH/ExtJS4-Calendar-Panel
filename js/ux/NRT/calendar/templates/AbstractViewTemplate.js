@@ -1,8 +1,8 @@
 /**
- * {{{ NRT.calendar.templates.AbstractViewTemplate
+ * {{{ Nrt.calendar.templates.AbstractViewTemplate
  *
  */
-Ext.define( 'NRT.calendar.templates.AbstractViewTemplate', {
+Ext.define( 'Nrt.calendar.templates.AbstractViewTemplate', {
 	  extend:				'Ext.XTemplate'
 
 	, template:				[

@@ -24,7 +24,7 @@
 		Ext.onReady( function() {
 			 Ext.QuickTips.init();
 			 
-			 console.log( '-- initializing start! --' );
+			 if( ! Ext.isIE ) console.log( '-- initializing start! --' );
 			
 			 window.generateData		= function(n, floor) {
 				 var data = []
@@ -144,7 +144,7 @@
 				]
 			 });
 			 
-			 console.log( '-- initializing done! --' );
+			 if( ! Ext.isIE ) console.log( '-- initializing done! --' );
 		});
 	</script>
 </head>

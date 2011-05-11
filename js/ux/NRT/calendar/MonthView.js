@@ -1,9 +1,9 @@
 /**
- * {{{ NRT.calendar.MonthView
+ * {{{ Nrt.calendar.MonthView
  *
  */
-Ext.define( 'NRT.calendar.MonthView', {
-	  extend:				'NRT.calendar.AbstractView'
+Ext.define( 'Nrt.calendar.MonthView', {
+	  extend:				'Nrt.calendar.AbstractView'
 	, alias:				'widget.nrt.calendar.monthview'
 
 	/**
@@ -11,12 +11,12 @@ Ext.define( 'NRT.calendar.MonthView', {
 	 *
 	 */
 	, initComponent:		function() {
-		console.log( ' -- component initilizing start -- ' + this.alias );
+		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
 		me.html	= 'ここは MonthView';
 		me.callParent();
-		console.log( ' -- component initilizing done -- ' + this.alias );
+		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
 
@@ -25,15 +25,15 @@ Ext.define( 'NRT.calendar.MonthView', {
 	 *
 	 */
 	, afterRender:			function() {
-		console.log( ' -- component afterRender start -- ' + this.alias );
+		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new NRT.calendar.templates.MonthViewTemplate({
+			this.tpl		= new Nrt.calendar.templates.MonthViewTemplate({
 				id:			this.id
 			});
 			this.tpl.compile();
 		}
 		this.callParent();
-		console.log( ' -- component afterRender done -- ' + this.alias );
+		Nrt.log( ' -- component afterRender done -- ' + this.alias );
 		this.tpl.overwrite(this.el,{
 			  date:		new Date()
 			, name:		this.alias

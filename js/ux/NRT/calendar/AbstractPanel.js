@@ -1,8 +1,8 @@
 /**
- * {{{ NRT.calendar.AbstractPanel
+ * {{{ Nrt.calendar.AbstractPanel
  *
  */
-Ext.define( 'NRT.calendar.AbstractPanel', {
+Ext.define( 'Nrt.calendar.AbstractPanel', {
 	  extend:				'Ext.panel.Panel'
 });
 // }}}
