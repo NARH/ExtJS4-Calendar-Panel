@@ -33,13 +33,13 @@ sudo gem install compass haml css_parser
 compass develop
 
 % cd ExtJS4-Calendar-Panel/resources
-% compass watch sass/ux/NRT/calendar.scss --css-dir='css'
+% compass watch sass/ux/Nrt/calendar.scss --css-dir='css'
 >>> Compass is watching for changes. Press Ctrl-C to Stop.
 
 
 compass compile
 
 % cd ExtJS4-Calendar-Panel/resources
-compass compile sass/ux/NRT/calendar.scss --css-dir='css' --output-style='compress'
-identical css/ux/NRT/calendar.css
+compass compile sass/ux/Nrt/calendar.scss --css-dir='css' --output-style='compress'
+identical css/ux/Nrt/calendar.css
  
