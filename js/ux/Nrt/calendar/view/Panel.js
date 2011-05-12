@@ -2,8 +2,8 @@
  * {{{ Nrt.calendar.Panel
  *
  */
-Ext.define( 'Nrt.calendar.Panel', {
-	  extend:				'Nrt.calendar.AbstractPanel'
+Ext.define( 'Nrt.calendar.view.Panel', {
+	  extend:				'Nrt.calendar.view.AbstractPanel'
 	, alias:				'widget.nrt.calendar'
 
 	, layout:				'card'
@@ -42,4 +42,4 @@ Ext.define( 'Nrt.calendar.Panel', {
 
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

@@ -4,8 +4,8 @@
  */
 Ext.onReady(function() {
 	
-	if( Nrt.calendar.Controllbar ) {
-		Ext.apply( Nrt.calendar.Controllbar.prototype, {
+	if( Nrt.calendar.view.Controllbar ) {
+		Ext.apply( Nrt.calendar.view.Controllbar.prototype, {
 			  dateFormat:			'Y年m月d日(l)'
 			, todayLabel:			'本日'
 			, prevLabel:			'前へ'
@@ -19,4 +19,4 @@ Ext.onReady(function() {
 	}
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

@@ -1,10 +1,10 @@
 /**
- * {{{ Nrt.calendar.CustomView
+ * {{{ Nrt.calendar.TodoView
  *
  */
-Ext.define( 'Nrt.calendar.CustomView', {
-	  extend:				'Nrt.calendar.AbstractView'
-	, alias:				'widget.nrt.calendar.customview'
+Ext.define( 'Nrt.calendar.view.TodoView', {
+	  extend:				'Nrt.calendar.view.AbstractView'
+	, alias:				'widget.nrt.calendar.todoview'
 
 	/**
 	 * {{{ initComponent method
@@ -14,7 +14,7 @@ Ext.define( 'Nrt.calendar.CustomView', {
 		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		me.html	= 'ここは CustomView';
+		me.html	= 'ここは TodoView';
 		me.callParent();
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
@@ -27,7 +27,7 @@ Ext.define( 'Nrt.calendar.CustomView', {
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
+			this.tpl		= new Nrt.calendar.templates.TodoViewTemplate({
 				id:			this.id
 			});
 			this.tpl.compile();
@@ -42,4 +42,4 @@ Ext.define( 'Nrt.calendar.CustomView', {
 	// }}}
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

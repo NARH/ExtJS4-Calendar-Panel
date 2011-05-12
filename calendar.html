@@ -33,30 +33,47 @@
 		};
 
 		Ext.onReady( function() {
-			 Ext.QuickTips.init();
-			 
-			 var dt		= new Date( Ext.Date.now() );
-			 var el		= Ext.get('console')
-			 	, footer	= Ext.get('footer');
-			 
-			 if( ! Ext.isIE ) console.log( '-- initializing start! --' );
+			Ext.QuickTips.init();
+			Ext.tip.QuickTipManager.init();
 
-			 Ext.create('Ext.container.Viewport', {
-				  layout:			'fit'
+			var dt		= new Date( Ext.Date.now() );
+			var el		= Ext.get('console')
+				, footer	= Ext.get('footer');
+			 
+			if( ! Ext.isIE ) console.log( '-- initializing start! --' );
+
+			Ext.create('Ext.container.Viewport', {
+				  layout:			'border'
 				, renderTo:			Ext.getBody()
 				, items:			[
 					{
 						  xtype:		'nrt.calendar'
 						, title:		'カレンダー'
-						, dockedItems:		[
-						 	  { contentEl:	'footer', dock: 'bottom' }
-				  			, { xtype:	'nrt.calendar.controll', dock:	'top' }
+						, region:		'center'
+						, dockedItems:	[
+				  			  { xtype:	'nrt.calendar.controllbar', dock:	'top' }
+						]
+						, tools:		[
+							  {
+								  type:		'gear'
+								, qtip:	{
+									  text: '設定'
+								}
+								, autoShow:	true
+								, handler:	function( event, toolEl, panel ) {
+								}
+							}
 						]
 					}
+					, {
+						  contentEl:	'footer'
+						, region:		'south'
+					}
 				]
-			 });
+			});
 			 
-			 if( ! Ext.isIE ) console.log( '-- initializing done! --' );
+			Ext.tip.QuickTipManager.enable();
+			if( ! Ext.isIE ) console.log( '-- initializing done! --' );
 		});
 	</script>
 </head>

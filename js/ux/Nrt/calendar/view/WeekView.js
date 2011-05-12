@@ -1,10 +1,10 @@
 /**
- * {{{ Nrt.calendar.MonthView
+ * {{{ Nrt.calendar.WeekView
  *
  */
-Ext.define( 'Nrt.calendar.MonthView', {
-	  extend:				'Nrt.calendar.AbstractView'
-	, alias:				'widget.nrt.calendar.monthview'
+Ext.define( 'Nrt.calendar.view.WeekView', {
+	  extend:				'Nrt.calendar.view.AbstractView'
+	, alias:				'widget.nrt.calendar.weekview'
 
 	/**
 	 * {{{ initComponent method
@@ -14,7 +14,7 @@ Ext.define( 'Nrt.calendar.MonthView', {
 		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		me.html	= 'ここは MonthView';
+		me.html	= 'ここは WeekView';
 		me.callParent();
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
@@ -27,7 +27,7 @@ Ext.define( 'Nrt.calendar.MonthView', {
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new Nrt.calendar.templates.MonthViewTemplate({
+			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
 				id:			this.id
 			});
 			this.tpl.compile();
@@ -42,5 +42,4 @@ Ext.define( 'Nrt.calendar.MonthView', {
 	// }}}
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
-
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

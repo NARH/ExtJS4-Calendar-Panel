@@ -2,9 +2,9 @@
  * {{{ Nrt.calendar.Controllbar
  *
  */
-Ext.define( 'Nrt.calendar.Controllbar', {
+Ext.define( 'Nrt.calendar.view.Controllbar', {
 	  extend:				'Ext.toolbar.Toolbar'
-	, alias:				'widget.nrt.calendar.controll'
+	, alias:				'widget.nrt.calendar.controllbar'
 
 	/**
 	 * @cfg {Boolean} prependButtons
@@ -209,4 +209,4 @@ Ext.define( 'Nrt.calendar.Controllbar', {
 	}
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

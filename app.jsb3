@@ -12,7 +12,7 @@
 					, "name":	"Nrt.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"Controllbar.js"
 				}
 				, {
@@ -20,7 +20,7 @@
 					, "name":	"AbstractViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"AbstractView.js"
 				}
 				, {
@@ -28,7 +28,7 @@
 					, "name":	"DayViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"DayView.js"
 				}
 				, {
@@ -36,7 +36,7 @@
 					, "name":	"WeekViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"WeekView.js"
 				}
 				, {
@@ -44,7 +44,7 @@
 					, "name":	"MonthViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"MonthView.js"
 				}
 				, {
@@ -52,7 +52,7 @@
 					, "name":	"CustomViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"CustomView.js"
 				}
 				, {
@@ -60,15 +60,15 @@
 					, "name":	"TodoViewTemplate.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"TodoView.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"AbstractPanel.js"
 				}
 				, {
-					  "path":	"js/ux/Nrt/calendar/"
+					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"Panel.js"
 				}
 			]
