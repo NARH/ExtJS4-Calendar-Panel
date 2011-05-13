@@ -67,7 +67,33 @@ $images:			$resources_url + 'themes/images/';
 	@include	buttonIcon( 'text_list_bullets.png' );
 }
 /*
- * dayview
+ * dayviewHeader
+ */
+.nrt-cal-hd-ct{
+    height: 100%;
+    border-top: 1px solid #99BBE8;
+}
+.nrt-cal-hd-days-tbl{
+    table-layout: fixed;
+    width: 100%;
+    background-color: #CDDCEF;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 14px;
+    height: 100%;
+}
+.nrt-cal-gutter{
+}
+.nrt-cal-hd-days-td{
+    padding-bottom: 2px;
+}
+.nrt-cal-hd-ad-inner{
+    position: relative;
+    height: 100%;
+    margin-top: 3px;
+}
+/*
+ * dayviewBody
  */
 .nrt-cal-bg-tbl{
     width: 100%;

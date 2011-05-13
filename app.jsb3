@@ -25,6 +25,10 @@
 				}
 				, {
 					  "path":	"js/ux/Nrt/calendar/templates/"
+					, "name":	"BoxLayoutTemplate.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"DayViewHeaderTemplate.js"
 				}
 				, {
