@@ -25,7 +25,19 @@
 				}
 				, {
 					  "path":	"js/ux/Nrt/calendar/templates/"
+					, "name":	"DayViewHeaderTemplate.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/view/"
+					, "name":	"DayViewHeader.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"DayViewBodyTemplate.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/view/"
+					, "name":	"DayViewBody.js"
 				}
 				, {
 					  "path":	"js/ux/Nrt/calendar/view/"

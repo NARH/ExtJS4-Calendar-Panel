@@ -46,6 +46,7 @@
 						  xtype:		'nrt.calendar'
 						, title:		'カレンダー'
 						, region:		'center'
+						, layout:		'border'
 						, dockedItems:	[
 				  			  { xtype:	'nrt.calendar.controllbar', dock:	'top' }
 						]
@@ -60,10 +61,15 @@
 								}
 							}
 						]
+						, items:		[
+							  { xtype:	'nrt.calendar.dayviewbody', region:	'center', autoScroll: true }
+							, { xtype:	'nrt.calendar.dayviewheader', region:	'north' }
+						]
 					}
 					, {
 						  contentEl:	'footer'
 						, region:		'south'
+						, border:		0
 					}
 				]
 			});
