@@ -27,10 +27,6 @@
 	<script type="text/javascript" src="js/ux/calendar/Panel.js"></script>
 	-->
 	<script>
-		Ext.isDebug		= true;
-		Ext.log			= function( s ) {
-			if( Ext.isDebug && ! Ext.isIE ) console.log( s );
-		};
 
 		Ext.onReady( function() {
 			Ext.QuickTips.init();
@@ -40,7 +36,7 @@
 			var el		= Ext.get('console')
 				, footer	= Ext.get('footer');
 			 
-			if( ! Ext.isIE ) console.log( '-- initializing start! --' );
+			Nrt.log( '-- initializing start! --' );
 
 			Ext.create('Ext.container.Viewport', {
 				  layout:			'border'
@@ -73,7 +69,7 @@
 			});
 			 
 			Ext.tip.QuickTipManager.enable();
-			if( ! Ext.isIE ) console.log( '-- initializing done! --' );
+			Nrt.log( '-- initializing done! --' );
 		});
 	</script>
 </head>

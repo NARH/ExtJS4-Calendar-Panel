@@ -12,13 +12,13 @@ Ext.define( 'Nrt.calendar.view.AbstractView', {
 	 *
 	 */
 	, initComponent:		function() {
-		Ext.log( ' -- abstract component initilizing start -- ' + this.alias );
+		Nrt.log( ' -- abstract component initilizing start -- ' + this.alias );
 		var me	= this;
 
 		Nrt.calendar.view.AbstractView.superclass.initComponent.call( this );
 		me.addEvents(
 		);
-		Ext.log( ' -- abstract component initilizing done -- ' + this.alias );
+		Nrt.log( ' -- abstract component initilizing done -- ' + this.alias );
 	}
 	// }}}
 
@@ -27,9 +27,9 @@ Ext.define( 'Nrt.calendar.view.AbstractView', {
 	 *
 	 */
 	, afterRender: function() {
-		Ext.log( ' -- abstract component afterRender start -- ' + this.alias );
+		Nrt.log( ' -- abstract component afterRender start -- ' + this.alias );
 		Nrt.calendar.view.AbstractView.superclass.afterRender.call( this );
-		Ext.log( ' -- abstract component afterRender done -- ' + this.alias );
+		Nrt.log( ' -- abstract component afterRender done -- ' + this.alias );
 	}
 	// }}}
 });

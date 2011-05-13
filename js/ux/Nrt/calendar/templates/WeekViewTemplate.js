@@ -14,6 +14,4 @@ Ext.define( 'Nrt.calendar.templates.WeekViewTemplate', {
 
 });
 // }}}
-// vim: foldmethod=maker tabstop=4 shiftwidth=4 autoindent
-
-
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

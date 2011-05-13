@@ -27,7 +27,7 @@ Ext.define( 'Nrt.calendar.view.DayView', {
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new Nrt.calendar.templates.DayViewTemplate({
+			this.tpl		= new Nrt.calendar.templates.DayViewBodyTemplate({
 				id:			this.id
 			});
 		}
