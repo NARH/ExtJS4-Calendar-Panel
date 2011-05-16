@@ -14,7 +14,22 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 	]
 
 	, items:				[
-		  { itemId:	'dayview',		xtype:	'nrt.calendar.dayview'		}
+		  {
+				  itemId:			'dayview'
+				, xtype:			'nrt.calendar.dayview'
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
 		, { itemId:	'weekview',		xtype:	'nrt.calendar.weekview'		}
 		, { itemId:	'monthview',	xtype:	'nrt.calendar.monthview'	}
 		, { itemId:	'customview',	xtype:	'nrt.calendar.customview'	}

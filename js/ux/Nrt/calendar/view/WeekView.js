@@ -30,7 +30,6 @@ Ext.define( 'Nrt.calendar.view.WeekView', {
 			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );

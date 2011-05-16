@@ -27,17 +27,15 @@ Ext.define( 'Nrt.calendar.view.CustomView', {
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
+			this.tpl		= Ext.create( 'Nrt.calendar.templates.WeekViewTemplate', {
 				id:			this.id
+			  , date:		new Date()
+			  , name:		this.alias
 			});
 			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );
-		this.tpl.overwrite(this.el,{
-			  date:		new Date()
-			, name:		this.alias
-		});
 	}
 	// }}}
 });

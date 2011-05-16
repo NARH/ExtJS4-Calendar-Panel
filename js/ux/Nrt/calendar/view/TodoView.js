@@ -30,7 +30,6 @@ Ext.define( 'Nrt.calendar.view.TodoView', {
 			this.tpl		= new Nrt.calendar.templates.TodoViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );

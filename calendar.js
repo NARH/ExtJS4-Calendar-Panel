@@ -284,28 +284,62 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
  *
  */
 Ext.define( 'Nrt.calendar.templates.AbstractViewTemplate', {
-	  extend:				'Ext.XTemplate'
+	  extend:				'Ext.Component'
 
 	, template:				[
 	]
 
-	, constructor:			function() {
-		var me	= this
-			, tpl	= this.template;
+	/**
+	 * {{{ constructor
+	 *
+	 */
+	, constructor:			function( config ) {
+		var me = this;
+		me.callParent( arguments );
+		me.initConfig( config );
 
-		if( Ext.isArray( arguments ) ) {
-			this.callParent( arguments.concat( tpl ) );
-		}
-		else {
-			if( arguments.length > 0 ) {
-				this.callParent( tpl.concat( arguments ) );
-			}
-			else {
-				this.callParent( tpl );
-			}
-		}
+		me.reloadTemplate();
+		return me;
+	}
+	// }}}
+
+	/**
+	 * {{{ reloadTemplate method
+	 *
+	 */
+	, reloadTemplate:		function() {
+		Nrt.log( '--- templae reloadTemplate start ---' );
+		var me = this;
+		me._template = Ext.isObject( me.template ) ? me.template
+			: new Ext.XTemplate( me.template );
+		Ext.applyIf( me._template, me );
+		me._template.compile();
+		me.reload();
+		Nrt.log( '--- templae reloadTemplate done ---' );
+	}
+	// }}}
+
+	/**
+	 * {{{ reload method
+	 *
+	 */
+	, reload:				function() {
+		Nrt.log( '--- templae reload start ---' );
+		var me = this;
+		me.update( me._template.apply( me ) );
+		Nrt.log( '--- templae reload done ---' );
+	}
+	// }}}
+
+	, overwrite:			function( el, config ) {
+		var me = this;
+		me._template.overwrite( el, config );
 	}
 
+	, compile:				function() {
+		var me = this;
+		return me._template.compile();
+	}
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -327,21 +361,31 @@ Ext.define( 'Nrt.calendar.view.AbstractView', {
 		Nrt.log( ' -- abstract component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		Nrt.calendar.view.AbstractView.superclass.initComponent.call( this );
-		me.addEvents(
-		);
+		me.callParent( arguments );
 		Nrt.log( ' -- abstract component initilizing done -- ' + this.alias );
 	}
 	// }}}
+});
+// }}}
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
+
+/**
+ * {{{ Nrt.calendar.AbstractPanel
+ *
+ */
+Ext.define( 'Nrt.calendar.view.AbstractPanel', {
+	  extend:				'Ext.panel.Panel'
 
 	/**
-	 * {{{ afterRender method
+	 * {{{ initComponent method
 	 *
 	 */
-	, afterRender: function() {
-		Nrt.log( ' -- abstract component afterRender start -- ' + this.alias );
-		Nrt.calendar.view.AbstractView.superclass.afterRender.call( this );
-		Nrt.log( ' -- abstract component afterRender done -- ' + this.alias );
+	, initComponent:		function() {
+		Nrt.log( ' -- abstract panel initilizing start -- ' + this.alias );
+		var me	= this;
+
+		me.callParent( arguments );
+		Nrt.log( ' -- abstract panel initilizing done -- ' + this.alias );
 	}
 	// }}}
 });
@@ -393,26 +437,6 @@ Ext.define( 'Nrt.calendar.templates.DayViewHeaderTemplate', {
 		, '</div>'
 	]
 
-	, initComponent:		function() {
-		Nrt.log( ' -- component initilizing start -- ' + this.alias );
-		var me	= this;
-
-		Nrt.calendar.templates.DayViewHeaderTemplate.prototype.apply = Nrt.calendar.templates.DayViewHeaderTemplate.prototype.applyTemplate;
-		Nrt.log( ' -- component initilizing done -- ' + this.alias );
-	}
-
-	/*
-	, applyTemplate:		function( o ) {
-		Nrt.log( ' -- component applyTemplate start -- ' + this.alias );
-		var me	= this;
-
-		me.allDayTpl	= this.allDayTpl || Ext.create( 'Nrt.calendar.templates.BoxLayoutTemplate', {});
-		me.allDayTpl.compile();
-		return me.callParent({
-            allDayTpl:	'データ'
-        });
-	}
-	*/
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -437,8 +461,10 @@ Ext.define( 'Nrt.calendar.view.DayViewHeader', {
 		var me			= this;
 		me.currentDay	= this.currentDay || Ext.Date.clearTime( new Date() );
 		me.dayCount		= this.dayCount || 1;
+
 		me.callParent();
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
+		return me;
 	}
 	// }}}
 
@@ -448,15 +474,16 @@ Ext.define( 'Nrt.calendar.view.DayViewHeader', {
 	 */
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
+
 		var me	= this;
 		if( ! me.tpl ) {
 			me.tpl		= new Nrt.calendar.templates.DayViewHeaderTemplate({
 				id:			me.id
 			});
 		}
-		me.tpl.compile();
-       	me.addClass('nrt-cal-header-ct');
 
+		Ext.apply({items:		[me.tpl]});
+       	me.addClass('nrt-cal-header-ct');
 		me.callParent();
 
 		me.tpl.overwrite( me.el, {
@@ -592,9 +619,15 @@ Ext.define( 'Nrt.calendar.view.DayViewBody', {
  *
  */
 Ext.define( 'Nrt.calendar.view.DayView', {
-	  extend:				'Nrt.calendar.view.AbstractView'
+	  extend:				'Nrt.calendar.view.AbstractPanel'
 	, alias:				'widget.nrt.calendar.dayview'
 
+	, initComponent:		function() {
+		Nrt.log( ' -- component initilizing start -- ' + this.alias );
+		var me	= this;
+		this.callParent( arguments );
+		Nrt.log( ' -- component initilizing done -- ' + this.alias );
+	}
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -649,7 +682,6 @@ Ext.define( 'Nrt.calendar.view.WeekView', {
 			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );
@@ -698,7 +730,7 @@ Ext.define( 'Nrt.calendar.view.MonthView', {
 		var me	= this;
 
 		me.html	= 'ここは MonthView';
-		me.callParent();
+		me.callParent( arguments );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
@@ -713,7 +745,6 @@ Ext.define( 'Nrt.calendar.view.MonthView', {
 			this.tpl		= new Nrt.calendar.templates.MonthViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );
@@ -774,17 +805,15 @@ Ext.define( 'Nrt.calendar.view.CustomView', {
 	, afterRender:			function() {
 		Nrt.log( ' -- component afterRender start -- ' + this.alias );
 		if( ! this.tpl ) {
-			this.tpl		= new Nrt.calendar.templates.WeekViewTemplate({
+			this.tpl		= Ext.create( 'Nrt.calendar.templates.WeekViewTemplate', {
 				id:			this.id
+			  , date:		new Date()
+			  , name:		this.alias
 			});
 			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );
-		this.tpl.overwrite(this.el,{
-			  date:		new Date()
-			, name:		this.alias
-		});
 	}
 	// }}}
 });
@@ -841,7 +870,6 @@ Ext.define( 'Nrt.calendar.view.TodoView', {
 			this.tpl		= new Nrt.calendar.templates.TodoViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );
@@ -851,16 +879,6 @@ Ext.define( 'Nrt.calendar.view.TodoView', {
 		});
 	}
 	// }}}
-});
-// }}}
-// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
-
-/**
- * {{{ Nrt.calendar.AbstractPanel
- *
- */
-Ext.define( 'Nrt.calendar.view.AbstractPanel', {
-	  extend:				'Ext.panel.Panel'
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -881,7 +899,22 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 	]
 
 	, items:				[
-		  { itemId:	'dayview',		xtype:	'nrt.calendar.dayview'		}
+		  {
+				  itemId:			'dayview'
+				, xtype:			'nrt.calendar.dayview'
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
 		, { itemId:	'weekview',		xtype:	'nrt.calendar.weekview'		}
 		, { itemId:	'monthview',	xtype:	'nrt.calendar.monthview'	}
 		, { itemId:	'customview',	xtype:	'nrt.calendar.customview'	}

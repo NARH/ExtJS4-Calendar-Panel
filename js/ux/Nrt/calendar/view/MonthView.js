@@ -15,7 +15,7 @@ Ext.define( 'Nrt.calendar.view.MonthView', {
 		var me	= this;
 
 		me.html	= 'ここは MonthView';
-		me.callParent();
+		me.callParent( arguments );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
@@ -30,7 +30,6 @@ Ext.define( 'Nrt.calendar.view.MonthView', {
 			this.tpl		= new Nrt.calendar.templates.MonthViewTemplate({
 				id:			this.id
 			});
-			this.tpl.compile();
 		}
 		this.callParent();
 		Nrt.log( ' -- component afterRender done -- ' + this.alias );

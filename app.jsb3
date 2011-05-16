@@ -24,6 +24,10 @@
 					, "name":	"AbstractView.js"
 				}
 				, {
+					  "path":	"js/ux/Nrt/calendar/view/"
+					, "name":	"AbstractPanel.js"
+				}
+				, {
 					  "path":	"js/ux/Nrt/calendar/templates/"
 					, "name":	"BoxLayoutTemplate.js"
 				}
@@ -78,10 +82,6 @@
 				, {
 					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"TodoView.js"
-				}
-				, {
-					  "path":	"js/ux/Nrt/calendar/view/"
-					, "name":	"AbstractPanel.js"
 				}
 				, {
 					  "path":	"js/ux/Nrt/calendar/view/"

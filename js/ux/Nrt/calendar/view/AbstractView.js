@@ -15,21 +15,8 @@ Ext.define( 'Nrt.calendar.view.AbstractView', {
 		Nrt.log( ' -- abstract component initilizing start -- ' + this.alias );
 		var me	= this;
 
-		Nrt.calendar.view.AbstractView.superclass.initComponent.call( this );
-		me.addEvents(
-		);
+		me.callParent( arguments );
 		Nrt.log( ' -- abstract component initilizing done -- ' + this.alias );
-	}
-	// }}}
-
-	/**
-	 * {{{ afterRender method
-	 *
-	 */
-	, afterRender: function() {
-		Nrt.log( ' -- abstract component afterRender start -- ' + this.alias );
-		Nrt.calendar.view.AbstractView.superclass.afterRender.call( this );
-		Nrt.log( ' -- abstract component afterRender done -- ' + this.alias );
 	}
 	// }}}
 });

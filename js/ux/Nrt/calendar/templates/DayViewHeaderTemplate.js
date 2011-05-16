@@ -21,26 +21,6 @@ Ext.define( 'Nrt.calendar.templates.DayViewHeaderTemplate', {
 		, '</div>'
 	]
 
-	, initComponent:		function() {
-		Nrt.log( ' -- component initilizing start -- ' + this.alias );
-		var me	= this;
-
-		Nrt.calendar.templates.DayViewHeaderTemplate.prototype.apply = Nrt.calendar.templates.DayViewHeaderTemplate.prototype.applyTemplate;
-		Nrt.log( ' -- component initilizing done -- ' + this.alias );
-	}
-
-	/*
-	, applyTemplate:		function( o ) {
-		Nrt.log( ' -- component applyTemplate start -- ' + this.alias );
-		var me	= this;
-
-		me.allDayTpl	= this.allDayTpl || Ext.create( 'Nrt.calendar.templates.BoxLayoutTemplate', {});
-		me.allDayTpl.compile();
-		return me.callParent({
-            allDayTpl:	'データ'
-        });
-	}
-	*/
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
