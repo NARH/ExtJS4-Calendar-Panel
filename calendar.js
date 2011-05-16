@@ -137,6 +137,12 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 			, {
 				  itemId:			'currentDate'
 				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
+				, menu:				Ext.create( 'Ext.menu.DatePicker', {
+					handler:		function(dp, date) {
+										me.updateCurrentDate( date );
+										Nrt.log( '-- debug --:' + me.currentDate );
+									}
+				})
 			}
 			, '->'
 			, {

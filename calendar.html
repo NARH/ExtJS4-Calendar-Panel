@@ -57,6 +57,13 @@
 								}
 								, autoShow:	true
 								, handler:	function( event, toolEl, panel ) {
+									var win = Ext.create('Ext.window.Window', {
+										  title: '設定ウィンドウ'
+										, width:	400
+										, height:	200
+										, html:		'<div>設定</div>'
+									});
+									win.show();
 								}
 							}
 						]
