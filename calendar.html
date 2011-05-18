@@ -37,14 +37,9 @@
 			var el		= Ext.get('console')
 				, footer	= Ext.get('footer');
 			 
-			Nrt.log( '-- initializing start! --' );
-
-			Nrt.log( '-- initializing calendar model start! --' );
-			Ext.define( 'Nrt.calendar.model.CalendarModel', {
-				  extend:			'Ext.data.Model'
-				, fields:			[ 'id', 'title' ]
-				, idProperty:		'id'
-				, proxy:			{
+			Nrt.log( '-- calendar store initializing start! --' );
+			var calendarStore	= Ext.create('Nrt.calendar.store.CalendarStore', {
+				proxy:	{
 					  type:			'rest'
 					, url:			'resources/json/calendar.json'
 					, reader:		{
@@ -53,22 +48,11 @@
 					}
 				}
 			});
-			Nrt.log( '-- initializing calendar model done! --' );
+			Nrt.log( '-- calendar store initializing done! --' );
 
-			Nrt.log( '-- initializing calendar store start! --' );
-			Ext.create( 'Ext.data.Store', {
-				  model:			'Nrt.calendar.model.CalendarModel'
-				, storeId:			'calendars'
-				, autoLoad:			true
-			});
-			Nrt.log( '-- initializing calendar store done! --' );
-
-			Nrt.log( '-- initializing event model start! --' );
-			Ext.define( 'Nrt.calendar.model.EventModel', {
-				  extend:			'Ext.data.Model'
-				, fields:			[ 'id', 'cid', 'title', 'start', 'end', 'allday', 'notes', 'reminder', 'location', 'url' ]
-				, idProperty:		'id'
-				, proxy:			{
+			Nrt.log( '-- event store initializing start! --' );
+			var eventStore		= Ext.create('Nrt.calendar.store.EventStore', {
+				proxy:	{
 					  type:			'rest'
 					, url:			'resources/json/events.json'
 					, reader:		{
@@ -77,15 +61,7 @@
 					}
 				}
 			});
-			Nrt.log( '-- initializing event model done! --' );
-
-			Nrt.log( '-- initializing event store start! --' );
-			Ext.create( 'Ext.data.Store', {
-				  model:			'Nrt.calendar.model.EventModel'
-				, storeId:			'events'
-				, autoLoad:			true
-			});
-			Nrt.log( '-- initializing event store done! --' );
+			Nrt.log( '-- event store initializing done! --' );
 
 			Nrt.log( '-- create vieport start! --' );
 			Ext.create('Ext.container.Viewport', {

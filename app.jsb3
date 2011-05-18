@@ -12,6 +12,22 @@
 					, "name":	"Nrt.js"
 				}
 				, {
+					  "path":	"js/ux/Nrt/calendar/model/"
+					, "name":	"CalendarModel.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/model/"
+					, "name":	"EventModel.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/store/"
+					, "name":	"CalendarStore.js"
+				}
+				, {
+					  "path":	"js/ux/Nrt/calendar/store/"
+					, "name":	"EventStore.js"
+				}
+				, {
 					  "path":	"js/ux/Nrt/calendar/view/"
 					, "name":	"Controllbar.js"
 				}

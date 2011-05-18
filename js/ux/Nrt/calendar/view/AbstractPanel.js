@@ -5,6 +5,9 @@
 Ext.define( 'Nrt.calendar.view.AbstractPanel', {
 	  extend:				'Ext.panel.Panel'
 
+	, calendarStore:		'nrt.calendar.store.calendar'
+	, eventStore:			'nrt.calendar.store.event'
+
 	/**
 	 * {{{ initComponent method
 	 *

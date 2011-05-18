@@ -30,10 +30,48 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 					}
 				]
 		}
-		, { itemId:	'weekview',		xtype:	'nrt.calendar.weekview'		}
-		, { itemId:	'monthview',	xtype:	'nrt.calendar.monthview'	}
-		, { itemId:	'customview',	xtype:	'nrt.calendar.customview'	}
-		, { itemId:	'todoview',		xtype:	'nrt.calendar.todoview'		}
+		, {
+				  itemId:	'weekview'
+				, xtype:	'nrt.calendar.dayview'
+				, dayCount:	7
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
+		, {
+				  itemId:	'monthview'
+				, xtype:	'nrt.calendar.monthview'
+		}
+		, {
+				  itemId:	'customview'
+				, xtype:	'nrt.calendar.dayview'
+				, dayCount:	4
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
+		, {
+				  itemId:	'todoview'
+				, xtype:	'nrt.calendar.todoview'
+		}
 	]
 
 	, initComponent:		function() {

@@ -67,6 +67,63 @@ licensing@nrt-engineer.biz
 
 
 /**
+ * {{{ Nrt.calendar.model.CalendarModel
+ *
+ */
+Ext.define( 'Nrt.calendar.model.CalendarModel', {
+	  extend:				'Ext.data.Model'
+
+	, fields:				[ 'id', 'title' ]
+	, idProperty:			'id'
+});
+// }}}
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
+
+/**
+ * {{{ Nrt.calendar.model.EventModel
+ *
+ */
+Ext.define( 'Nrt.calendar.model.EventModel', {
+	  extend:				'Ext.data.Model'
+
+	, fields:				[ 'id', 'cid', 'title', 'start', 'end', 'allday', 'notes', 'reminder', 'location', 'url', 'new' ]
+	, idProperty:			'id'
+});
+// }}}
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
+
+
+
+/**
+ * {{{ Nrt.calendar.store.CalendarStore
+ *
+ */
+Ext.define( 'Nrt.calendar.store.CalendarStore', {
+	  extend:				'Ext.data.Store'
+
+	, model:				'Nrt.calendar.model.CalendarModel'
+	, storeId:				'nrt.calendar.store.calendars'
+	, autoLoad:				true
+});
+// }}}
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
+
+
+/**
+ * {{{ Nrt.calendar.store.EventStore
+ *
+ */
+Ext.define( 'Nrt.calendar.store.EventStore', {
+	  extend:				'Ext.data.Store'
+
+	, model:				'Nrt.calendar.model.EventModel'
+	, storeId:				'nrt.calendar.store.events'
+	, autoLoad:				true
+});
+// }}}
+// vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
+
+/**
  * {{{ Nrt.calendar.Controllbar
  *
  */
@@ -355,8 +412,10 @@ Ext.define( 'Nrt.calendar.templates.AbstractViewTemplate', {
  *
  */
 Ext.define( 'Nrt.calendar.view.AbstractView', {
-	  extend:				'Ext.Component'
+	  extend:				'Ext.container.Container'
 
+	, calendarStore:		'nrt.calendar.store.calendar'
+	, eventStore:			'nrt.calendar.store.event'
 	, tpl:					false
 
 	/**
@@ -381,6 +440,9 @@ Ext.define( 'Nrt.calendar.view.AbstractView', {
  */
 Ext.define( 'Nrt.calendar.view.AbstractPanel', {
 	  extend:				'Ext.panel.Panel'
+
+	, calendarStore:		'nrt.calendar.store.calendar'
+	, eventStore:			'nrt.calendar.store.event'
 
 	/**
 	 * {{{ initComponent method
@@ -625,12 +687,16 @@ Ext.define( 'Nrt.calendar.view.DayViewBody', {
  *
  */
 Ext.define( 'Nrt.calendar.view.DayView', {
-	  extend:				'Nrt.calendar.view.AbstractPanel'
+	  extend:				'Nrt.calendar.view.AbstractView'
 	, alias:				'widget.nrt.calendar.dayview'
+
+	, dayCount: 			1
 
 	, initComponent:		function() {
 		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
+		Nrt.log( ' -- debug: ' + this.dayCount );
+        me.addCls('nrt-cal-dayview nrt-cal-ct');
 		this.callParent( arguments );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
@@ -921,10 +987,48 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 					}
 				]
 		}
-		, { itemId:	'weekview',		xtype:	'nrt.calendar.weekview'		}
-		, { itemId:	'monthview',	xtype:	'nrt.calendar.monthview'	}
-		, { itemId:	'customview',	xtype:	'nrt.calendar.customview'	}
-		, { itemId:	'todoview',		xtype:	'nrt.calendar.todoview'		}
+		, {
+				  itemId:	'weekview'
+				, xtype:	'nrt.calendar.dayview'
+				, dayCount:	7
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
+		, {
+				  itemId:	'monthview'
+				, xtype:	'nrt.calendar.monthview'
+		}
+		, {
+				  itemId:	'customview'
+				, xtype:	'nrt.calendar.dayview'
+				, dayCount:	4
+				, layout:			'border'
+				, items:			[
+					  {
+						  xtype:		'nrt.calendar.dayviewbody'
+						, region:		'center'
+						, autoScroll:	true
+					}
+					, {
+						  xtype:		'nrt.calendar.dayviewheader'
+						, region:		'north'
+					}
+				]
+		}
+		, {
+				  itemId:	'todoview'
+				, xtype:	'nrt.calendar.todoview'
+		}
 	]
 
 	, initComponent:		function() {

@@ -3,8 +3,10 @@
  *
  */
 Ext.define( 'Nrt.calendar.view.AbstractView', {
-	  extend:				'Ext.Component'
+	  extend:				'Ext.container.Container'
 
+	, calendarStore:		'nrt.calendar.store.calendar'
+	, eventStore:			'nrt.calendar.store.event'
 	, tpl:					false
 
 	/**
