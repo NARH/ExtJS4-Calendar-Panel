@@ -1,0 +1,28 @@
+{
+	"events":			[
+		  {
+			  "id":			1001
+			, "cid":		1
+			, "title":		"休暇"
+			, "start":		"today.add(Date.DAY, -20).add(Date.HOUR, 10)"
+			, "end":		"today.add(Date.DAY, -10).add(Date.HOUR, 15)"
+			, "allday":		false
+			, "notes":		"Have fun"
+			, "reminder":	15
+			, "location":	""
+			, "url":		""
+		}
+		, {
+			  "id":			1002
+			, "cid":		2
+			, "title":		"昼食会"
+			, "start":		"today.add(Date.DAY, -20).add(Date.HOUR, 10)"
+			, "end":		"today.add(Date.DAY, -10).add(Date.HOUR, 15)"
+			, "ad":			false
+			, "notes":		"Have fun"
+			, "reminder":	2880
+			, "location":	""
+			, "url":		""
+		}
+	]
+}
