@@ -18,7 +18,7 @@
 			, "title":		"昼食会"
 			, "start":		"today.add(Date.DAY, -20).add(Date.HOUR, 10)"
 			, "end":		"today.add(Date.DAY, -10).add(Date.HOUR, 15)"
-			, "ad":			false
+			, "allday":		false
 			, "notes":		"Have fun"
 			, "reminder":	2880
 			, "location":	""

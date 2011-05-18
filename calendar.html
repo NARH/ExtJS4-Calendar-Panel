@@ -31,6 +31,7 @@
 		Ext.onReady( function() {
 			Ext.QuickTips.init();
 			Ext.tip.QuickTipManager.init();
+			Ext.tip.QuickTipManager.enable();
 
 			var dt		= new Date( Ext.Date.now() );
 			var el		= Ext.get('console')
@@ -38,6 +39,55 @@
 			 
 			Nrt.log( '-- initializing start! --' );
 
+			Nrt.log( '-- initializing calendar model start! --' );
+			Ext.define( 'Nrt.calendar.model.CalendarModel', {
+				  extend:			'Ext.data.Model'
+				, fields:			[ 'id', 'title' ]
+				, idProperty:		'id'
+				, proxy:			{
+					  type:			'rest'
+					, url:			'resources/json/calendar.json'
+					, reader:		{
+						  type:		'json'
+						, root:		'calendars'
+					}
+				}
+			});
+			Nrt.log( '-- initializing calendar model done! --' );
+
+			Nrt.log( '-- initializing calendar store start! --' );
+			Ext.create( 'Ext.data.Store', {
+				  model:			'Nrt.calendar.model.CalendarModel'
+				, storeId:			'calendars'
+				, autoLoad:			true
+			});
+			Nrt.log( '-- initializing calendar store done! --' );
+
+			Nrt.log( '-- initializing event model start! --' );
+			Ext.define( 'Nrt.calendar.model.EventModel', {
+				  extend:			'Ext.data.Model'
+				, fields:			[ 'id', 'cid', 'title', 'start', 'end', 'allday', 'notes', 'reminder', 'location', 'url' ]
+				, idProperty:		'id'
+				, proxy:			{
+					  type:			'rest'
+					, url:			'resources/json/events.json'
+					, reader:		{
+						  type:		'json'
+						, root:		'events'
+					}
+				}
+			});
+			Nrt.log( '-- initializing event model done! --' );
+
+			Nrt.log( '-- initializing event store start! --' );
+			Ext.create( 'Ext.data.Store', {
+				  model:			'Nrt.calendar.model.EventModel'
+				, storeId:			'events'
+				, autoLoad:			true
+			});
+			Nrt.log( '-- initializing event store done! --' );
+
+			Nrt.log( '-- create vieport start! --' );
 			Ext.create('Ext.container.Viewport', {
 				  layout:			'border'
 				, renderTo:			Ext.getBody()
@@ -75,8 +125,8 @@
 					}
 				]
 			});
+			Nrt.log( '-- create vieport done! --' );
 			 
-			Ext.tip.QuickTipManager.enable();
 			Nrt.log( '-- initializing done! --' );
 		});
 	</script>
