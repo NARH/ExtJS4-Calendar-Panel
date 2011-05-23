@@ -183,6 +183,15 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, scope:			me
 			}
 			, {
+				  itemId:			'currentDate'
+				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
+				, menu:				Ext.create( 'Ext.menu.DatePicker', {
+					handler:		function(dp, date) {
+										me.updateCurrentDate( date );
+									}
+				})
+			}
+			, {
 				  itemId:			'next'
 				, tooltip:			me.nextLabel
 				, overflowText:		me.nextLabel
@@ -190,16 +199,6 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveNext
 				, scope:			me
-			}
-			, {
-				  itemId:			'currentDate'
-				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
-				, menu:				Ext.create( 'Ext.menu.DatePicker', {
-					handler:		function(dp, date) {
-										me.updateCurrentDate( date );
-										Nrt.log( '-- debug --:' + me.currentDate );
-									}
-				})
 			}
 			, '->'
 			, {
@@ -211,6 +210,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveDayView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -222,6 +222,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveWeekView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -233,6 +234,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveMonthView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -244,6 +246,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveCustomDaysView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -255,6 +258,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveTodoView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 		]
 	}
@@ -394,15 +398,26 @@ Ext.define( 'Nrt.calendar.templates.AbstractViewTemplate', {
 	}
 	// }}}
 
+	/**
+	 * {{{ overwrite method
+	 *
+	 */
 	, overwrite:			function( el, config ) {
 		var me = this;
 		me._template.overwrite( el, config );
 	}
+	// }}}
 
+	/**
+	 * {{{ compile method
+	 *
+	 */
 	, compile:				function() {
 		var me = this;
 		return me._template.compile();
 	}
+	// }}}
+
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -467,17 +482,42 @@ Ext.define( 'Nrt.calendar.view.AbstractPanel', {
 Ext.define( 'Nrt.calendar.templates.BoxLayoutTemplate', {
 	  extend:				'Nrt.calendar.templates.AbstractViewTemplate'
 
+	, showWeekLinks:		true
+
 	, template:				[
-		  '<div id="{[this.id]}-wk-{#}" class="ext-cal-wk-ct">'
-		, 	'<table class="ext-cal-evt-tbl" cellpadding="0" cellspacing="0">'
-		, 		'<tbody>'
-		, 			'<tr>'
-		, 				'<td><div>データ</div></td>'
-		, 			'</tr>'
-		, 		'</tbody>'
-		, 	'</table>'
-		, '</div>'
+          '<tpl for="weeks">',
+		, 	'<div id="{[this.id]}-wk-{[xindex-1]}" class="nrt-cal-wk-ct" style="top:{[this.getRowTop(xindex, xcount)]}%; height:{[this.getRowHeight(xcount)]}%;">'
+		,		'<tpl if="this.showWeekLinks">'
+		, 			'<div id="{weekLinkId}" class="nrt-cal-week-link">{weekNum}</div>'
+		,		'</tpl>'
+		, 		'<table class="nrt-cal-bg-tbl" cellpadding="0" cellspacing="0">'
+		, 			'<tbody>'
+		, 				'<tr>'
+		, 					'<tpl for=".">'
+		, 						'<td id="{[this.id]}-day-{date:date("Ymd")}" class="{cellCls}">&nbsp;</td>'
+		, 					'</tpl>'
+		, 				'</tr>'
+		, 			'</tbody>'
+		, 		'</table>' 
+		, 		'<table class="nrt-cal-evt-tbl" cellpadding="0" cellspacing="0">'
+		, 			'<tbody>'
+		, 				'<tr>'
+		, 					'<tpl for=".">'
+		, 						'<td id="{[this.id]}-ev-day-{date:date("Ymd")}" class="{titleCls}"><div>{title}</div></td>'
+		, 					'</tpl>'
+		, 				'</tr>'
+		, 			'</tbody>'
+		, 		'</table>'
+		, 	'</div>'
+		, '</tpl>'
 	]
+
+	, getRowTop:			function(i, ln) {
+		return ((i-1)*(100/ln));
+	}
+	, getRowHeight:			function(ln) {
+		return 100/ln;
+	}
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent
@@ -514,7 +554,7 @@ Ext.define( 'Nrt.calendar.templates.DayViewHeaderTemplate', {
  *
  */
 Ext.define( 'Nrt.calendar.view.DayViewHeader', {
-	  extend:				'Nrt.calendar.view.AbstractView'
+	  extend:				'Ext.Component'
 	, alias:				'widget.nrt.calendar.dayviewheader'
 
 	, currentDay:			false
@@ -571,6 +611,8 @@ Ext.define( 'Nrt.calendar.view.DayViewHeader', {
 Ext.define( 'Nrt.calendar.templates.DayViewBodyTemplate', {
 	  extend:				'Nrt.calendar.templates.AbstractViewTemplate'
 
+	, dayCount:				1
+
 	, template:				[
 		  '<table class="nrt-cal-bg-tbl" cellspacing="0" cellpadding="0">'
 		, 	'<tbody>'
@@ -617,7 +659,7 @@ Ext.define( 'Nrt.calendar.templates.DayViewBodyTemplate', {
  *
  */
 Ext.define( 'Nrt.calendar.view.DayViewBody', {
-	  extend:				'Nrt.calendar.view.AbstractView'
+	  extend:				'Ext.Component'
 	, alias:				'widget.nrt.calendar.dayviewbody'
 
 	, currentDay:			false
@@ -633,7 +675,8 @@ Ext.define( 'Nrt.calendar.view.DayViewBody', {
 		var me			= this;
 		me.currentDay	= this.currentDay || Ext.Date.clearTime( new Date() );
 		me.dayCount		= this.dayCount || 1;
-		me.callParent();
+		me.callParent( arguments );
+		Nrt.log( ' -- dayCount:' + me.dayCount );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}
@@ -690,13 +733,16 @@ Ext.define( 'Nrt.calendar.view.DayView', {
 	  extend:				'Nrt.calendar.view.AbstractView'
 	, alias:				'widget.nrt.calendar.dayview'
 
-	, dayCount: 			1
+	, dayCount: 			false
 
 	, initComponent:		function() {
 		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
-		Nrt.log( ' -- debug: ' + this.dayCount );
         me.addCls('nrt-cal-dayview nrt-cal-ct');
+		for(item in me.items) {
+			me.items[item].ownerCt	=	me;
+			me.items[item].dayCount	=	me.dayCount;
+		}
 		this.callParent( arguments );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
@@ -977,12 +1023,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'daily-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'daily-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]
@@ -994,12 +1042,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'week-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'week-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]
@@ -1015,12 +1065,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'custom-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'custom-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]

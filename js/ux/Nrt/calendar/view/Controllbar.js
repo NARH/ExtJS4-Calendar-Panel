@@ -58,6 +58,15 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, scope:			me
 			}
 			, {
+				  itemId:			'currentDate'
+				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
+				, menu:				Ext.create( 'Ext.menu.DatePicker', {
+					handler:		function(dp, date) {
+										me.updateCurrentDate( date );
+									}
+				})
+			}
+			, {
 				  itemId:			'next'
 				, tooltip:			me.nextLabel
 				, overflowText:		me.nextLabel
@@ -65,16 +74,6 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveNext
 				, scope:			me
-			}
-			, {
-				  itemId:			'currentDate'
-				, html:				Ext.Date.format( me.currentDate, me.dateFormat )
-				, menu:				Ext.create( 'Ext.menu.DatePicker', {
-					handler:		function(dp, date) {
-										me.updateCurrentDate( date );
-										Nrt.log( '-- debug --:' + me.currentDate );
-									}
-				})
 			}
 			, '->'
 			, {
@@ -86,6 +85,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveDayView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -97,6 +97,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveWeekView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -108,6 +109,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveMonthView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -119,6 +121,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveCustomDaysView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 			, '-'
 			, {
@@ -130,6 +133,7 @@ Ext.define( 'Nrt.calendar.view.Controllbar', {
 				, disabled:			false
 				, handler:			me.moveTodoView
 				, scope:			me
+				, toggleGroup:		'view'
 			}
 		]
 	}

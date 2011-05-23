@@ -20,12 +20,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'daily-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'daily-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]
@@ -37,12 +39,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'week-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'week-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]
@@ -58,12 +62,14 @@ Ext.define( 'Nrt.calendar.view.Panel', {
 				, layout:			'border'
 				, items:			[
 					  {
-						  xtype:		'nrt.calendar.dayviewbody'
+						  itemId:		'custom-bd'
+						, xtype:		'nrt.calendar.dayviewbody'
 						, region:		'center'
 						, autoScroll:	true
 					}
 					, {
-						  xtype:		'nrt.calendar.dayviewheader'
+						  itemId:		'custom-hd'
+						, xtype:		'nrt.calendar.dayviewheader'
 						, region:		'north'
 					}
 				]

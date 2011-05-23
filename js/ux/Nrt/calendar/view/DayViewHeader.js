@@ -3,7 +3,7 @@
  *
  */
 Ext.define( 'Nrt.calendar.view.DayViewHeader', {
-	  extend:				'Nrt.calendar.view.AbstractView'
+	  extend:				'Ext.Component'
 	, alias:				'widget.nrt.calendar.dayviewheader'
 
 	, currentDay:			false

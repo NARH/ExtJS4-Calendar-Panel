@@ -5,6 +5,8 @@
 Ext.define( 'Nrt.calendar.templates.DayViewBodyTemplate', {
 	  extend:				'Nrt.calendar.templates.AbstractViewTemplate'
 
+	, dayCount:				1
+
 	, template:				[
 		  '<table class="nrt-cal-bg-tbl" cellspacing="0" cellpadding="0">'
 		, 	'<tbody>'

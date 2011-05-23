@@ -6,13 +6,16 @@ Ext.define( 'Nrt.calendar.view.DayView', {
 	  extend:				'Nrt.calendar.view.AbstractView'
 	, alias:				'widget.nrt.calendar.dayview'
 
-	, dayCount: 			1
+	, dayCount: 			false
 
 	, initComponent:		function() {
 		Nrt.log( ' -- component initilizing start -- ' + this.alias );
 		var me	= this;
-		Nrt.log( ' -- debug: ' + this.dayCount );
         me.addCls('nrt-cal-dayview nrt-cal-ct');
+		for(item in me.items) {
+			me.items[item].ownerCt	=	me;
+			me.items[item].dayCount	=	me.dayCount;
+		}
 		this.callParent( arguments );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}

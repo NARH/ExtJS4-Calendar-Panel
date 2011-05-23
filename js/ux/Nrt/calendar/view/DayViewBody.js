@@ -3,7 +3,7 @@
  *
  */
 Ext.define( 'Nrt.calendar.view.DayViewBody', {
-	  extend:				'Nrt.calendar.view.AbstractView'
+	  extend:				'Ext.Component'
 	, alias:				'widget.nrt.calendar.dayviewbody'
 
 	, currentDay:			false
@@ -19,7 +19,8 @@ Ext.define( 'Nrt.calendar.view.DayViewBody', {
 		var me			= this;
 		me.currentDay	= this.currentDay || Ext.Date.clearTime( new Date() );
 		me.dayCount		= this.dayCount || 1;
-		me.callParent();
+		me.callParent( arguments );
+		Nrt.log( ' -- dayCount:' + me.dayCount );
 		Nrt.log( ' -- component initilizing done -- ' + this.alias );
 	}
 	// }}}

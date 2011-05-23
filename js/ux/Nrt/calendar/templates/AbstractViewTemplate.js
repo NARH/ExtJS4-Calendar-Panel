@@ -50,15 +50,26 @@ Ext.define( 'Nrt.calendar.templates.AbstractViewTemplate', {
 	}
 	// }}}
 
+	/**
+	 * {{{ overwrite method
+	 *
+	 */
 	, overwrite:			function( el, config ) {
 		var me = this;
 		me._template.overwrite( el, config );
 	}
+	// }}}
 
+	/**
+	 * {{{ compile method
+	 *
+	 */
 	, compile:				function() {
 		var me = this;
 		return me._template.compile();
 	}
+	// }}}
+
 });
 // }}}
 // vim: foldmethod=maker commentstring=%s*%s : // tabstop=4 shiftwidth=4 autoindent

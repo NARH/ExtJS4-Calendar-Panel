@@ -67,6 +67,39 @@ $images:			$resources_url + 'themes/images/';
 	@include	buttonIcon( 'text_list_bullets.png' );
 }
 /*
+ * boxlayout
+ */
+.nrt-cal-bg-tbl {
+    height:100%;
+    left:0;
+    position:absolute;
+    table-layout:fixed;
+    top:0;
+    width:100%;
+}
+.nrt-cal-week-links .nrt-cal-bg-tbl {
+    left: 20px;
+}
+.nrt-cal-week-links .nrt-cal-evt-tbl,
+.nrt-cal-week-links .nrt-cal-hd-days-tbl {
+    margin-left: 20px;
+}
+.nrt-cal-monthview .nrt-week-link-over {
+    background: #E0E7EF;
+}
+.nrt-cal-wk-ct{
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+}
+.ext-cal-evt-tbl{
+    position:relative;
+    table-layout:fixed;
+    width:100%;
+}
+/*
  * dayviewHeader
  */
 .nrt-cal-hd-ct{
